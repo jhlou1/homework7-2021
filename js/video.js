@@ -8,6 +8,8 @@ window.addEventListener("load", function() {
 document.querySelector("#play").addEventListener("click", function() {
  	video.play();
 	console.log("Play Video");
+	volume_value = document.querySelector("#slider").value;
+	document.querySelector("#volume").textContent = volume_value + "%";
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
@@ -27,13 +29,15 @@ document.querySelector("#faster").addEventListener("click", function() {
 
 document.querySelector("#skip").addEventListener("click", function() {
 	console.log("Original location " + video.currentTime)
-	video.currentTime += 15;
-	if(video.currentTime >= video.duration || video.paused) {
+	if(video.currentTime + 15 >= video.duration || video.paused) {
 		//video.pause();
 		video.currentTime = 0;
 		//video.play();
-		console.log("Going back to the beginning");
+		console.log("Going back to beginning");
 	  }
+	else{
+		video.currentTime += 15;
+	}
 	console.log("New location " + video.currentTime)
 });
 
