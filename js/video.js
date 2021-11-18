@@ -29,7 +29,7 @@ document.querySelector("#faster").addEventListener("click", function() {
 
 document.querySelector("#skip").addEventListener("click", function() {
 	console.log("Original location " + video.currentTime)
-	if(video.currentTime + 15 >= video.duration || video.paused) {
+	if(video.currentTime + 15 > video.duration) {
 		//video.pause();
 		video.currentTime = 0;
 		//video.play();
